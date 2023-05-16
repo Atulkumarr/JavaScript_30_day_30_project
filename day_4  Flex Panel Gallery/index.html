@@ -126,22 +126,37 @@
   </div>
 
   <script>
-    const panels = document.querySelectorAll('.panel');
+    let panel = document.querySelectorAll('.panel')
+// console.log(panel)
 
-    function toggleOpen() {
-      console.log('Hello');
-      this.classList.toggle('open');
-    }
+function animate(e){
+  let parent = this.parentElement.children
+  let created_array= Array.from(parent)
+  console.log(created_array)
 
-    function toggleActive(e) {
-      console.log(e.propertyName);
-      if (e.propertyName.includes('flex')) {
-        this.classList.toggle('open-active');
-      }
-    }
+  created_array.forEach((item, index)=>{
+    item.classList.remove('open', 'open-active')
+    item.setAttribute('id', index)
+  })
 
-    panels.forEach(panel => panel.addEventListener('click', toggleOpen));
-    panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
+
+  console.log(this.id)
+  if(this.id === this.id ){
+    this.classList.add('open-active', 'open')
+  }
+}
+
+function increase(){
+  this.classList.toggle('open')
+}
+
+panel.forEach(function(item){
+item.addEventListener('click', increase)
+})
+
+panel.forEach(function(item){
+item.addEventListener('click', animate)
+})
   </script>
 
 </body>
